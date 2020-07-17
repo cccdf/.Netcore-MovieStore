@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MovieStore.Core.Entities;
+using MovieStore.Core.ServiceInterfaces;
 using MovieStore.MVC.Models;
 
 namespace MovieStore.MVC.Controllers
 {
     public class MoviesController : Controller
     {
+        //ioc .net core has built in ioc/di,we need to rely on third-party ioc to do dependency injection, Autofac, Ninject
+        private readonly IMovieService _movieService;
+        private readonly IGenreService _genreService;
+        public MoviesController(IMovieService movieService, IGenreService genreService)
+        {
+            _movieService = movieService;
+            _genreService = genreService;
+        }
         //GET localhost/Movies/index
         [HttpGet]
   
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //goto database and get some list of movies and give it to the view
             //var movies = new List<Movie> {
@@ -28,7 +38,21 @@ namespace MovieStore.MVC.Controllers
             //ViewBag.MoviesCount = movies.Count;
             //we need to pass data from controller action method to the view
             //usually its prefer to send a strongly typed model or object
-            return View();
+
+
+            //var movieService = new MovieService();
+            //var movies = await  movieService.GetAllMovie();
+
+            //call movie service method, highest grossing method
+
+            //var movies = await _movieService.GetTop25HighestRevnueMovies();
+            //var movies = await _movieService.Get25TopRatedMovies();
+            //var movies = await _movieService.GetMovieById(1);
+            //var movies = await _movieService.GetMoviesCount("Iron Man");
+            //var movies = await _movieService.CreateMovie(new Movie() { Title = "test" });
+            var movies = await _movieService.UpdateMovie(new Movie() { Id = 201, Title = "testupdate" });
+            var genres = await _genreService.GetAllGenres();
+            return View(genres);
         }
         [HttpPost]
         public IActionResult Create(string title, decimal budget)

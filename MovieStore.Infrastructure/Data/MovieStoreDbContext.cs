@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -152,7 +153,15 @@ namespace MovieStore.Infrastructure.Data
 
             //we dont want to create rating column but we want c# rating propertiy in our entity so that we can show movie rating in the UI
             modelBuilder.Ignore(m => m.Rating);
+            
 
+        }
+
+        public void Test()
+        {
+            var ll = new List<int>();
+            ll.Where(x => x > 2);
+            Genres.Where(b => b.Id == 2);
         }
     }
 }
