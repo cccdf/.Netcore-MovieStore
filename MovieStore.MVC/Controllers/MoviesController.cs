@@ -21,7 +21,7 @@ namespace MovieStore.MVC.Controllers
         }
         //GET localhost/Movies/index
         [HttpGet]
-  
+
         public async Task<IActionResult> Index()
         {
             //goto database and get some list of movies and give it to the view
@@ -46,13 +46,13 @@ namespace MovieStore.MVC.Controllers
             //call movie service method, highest grossing method
 
             //var movies = await _movieService.GetTop25HighestRevnueMovies();
-            //var movies = await _movieService.Get25TopRatedMovies();
+            var movies = await _movieService.Get25TopRatedMovies();
             //var movies = await _movieService.GetMovieById(1);
             //var movies = await _movieService.GetMoviesCount("Iron Man");
             //var movies = await _movieService.CreateMovie(new Movie() { Title = "test" });
-            var movies = await _movieService.UpdateMovie(new Movie() { Id = 201, Title = "testupdate" });
-            var genres = await _genreService.GetAllGenres();
-            return View(genres);
+            //var movies = await _movieService.UpdateMovie(new Movie() { Id = 201, Title = "testupdate" });
+            //var genres = await _genreService.GetAllGenres();
+            return View(movies);
         }
         [HttpPost]
         public IActionResult Create(string title, decimal budget)
@@ -68,6 +68,20 @@ namespace MovieStore.MVC.Controllers
             //we need to have this method so that we can show the empty page for user to enter information
             // GET http://localhost/movies/create
             return View();
+        }
+
+        [HttpGet("/Genre/{genreId}")]
+        public async Task<IActionResult> GetMoviesByGenre(int genreId)
+        {
+            var movies = await _movieService.GetMoviesByGenreId(genreId);
+            return View(movies);
+        }
+
+        [HttpGet("/Movie/{movieId}")]
+        public async Task<IActionResult> Details(int movieId)
+        {
+            var movie = await _movieService.GetMovieById(movieId);
+            return View(movie);
         }
     }
 }

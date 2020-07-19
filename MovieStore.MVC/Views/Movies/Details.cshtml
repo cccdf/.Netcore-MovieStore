@@ -1,0 +1,156 @@
+﻿@model MovieStore.Core.Entities.Movie
+
+
+<style>
+    #overview p{
+        color:white;
+    }
+</style>
+
+    <div class="container-fluid">
+        <div class="row" style="background-color:black" id="overview">
+            <div class="col-2 pl-lg-0">
+                <img src="@Model.PosterUrl" class="img-fluid" alt="@Model.Title" />
+
+            </div>
+            <div class="col-8 px-xl-5">
+                <div class="row">
+                    <h1 class="text-white">@Model.Title</h1>
+
+                </div>
+                <div class="row">
+                    <p>@Model.Tagline</p>
+                </div>
+                <div class="row">
+                    <div class="col pl-lg-0">
+                        <span>@Model.RunTime m | @Model.ReleaseDate.Value.ToString("yyyy")</span>
+                    </div>
+                    <div class="col">
+                        <p>
+                            @foreach (var item in Model.MovieGenres)
+                            {
+                            <span class="badge badge-pill badge-secondary">@item.Genre.Name</span>
+                            }
+                        </p>
+
+                    </div> 
+                </div>
+                <div class="row">
+                    <span class="badge badge-warning">@Model.Rating.Value.ToString("F")</span>
+                </div>
+                <div class="row">
+                    <p class="small">@Model.Overview</p>
+                </div>
+            </div>
+            <div class="col-2 pt-lg-3">
+                <div class="row pb-xl-2">
+                    <a class="btn btn-dark btn-sm"><i class="fa fa-heart"></i></a>
+                    
+                </div>                
+                <div class="row pb-xl-2 pr-xl-4">
+                    <a class="btn btn-dark btn-block" href="#"><i class="fa fa-edit"></i>REVIEW</a>
+                </div>                
+                <div class="row pb-xl-2 pr-xl-4">
+                    
+                    <a class="btn btn-dark btn-block" href="#"><i class="fa fa-play"></i>TRAILER</a>
+                </div>                
+                <div class="row pb-xl-2 pr-xl-4">
+                    <a class="btn btn-dark btn-block" href="#">BUY @Model.Price</a>
+                </div>    
+            </div>
+
+        </div>
+        <div class="row pt-xl-3">
+            <div class="col-4" style="background-color: #F8F9FA;">
+                <div class="row border-bottom px-xl-2">
+                    <h5>MOVIE FACTS</h5>
+                </div>
+                <div class="row border-bottom border-top px-xl-3">
+                    <p class="my-lg-1">
+                        <i class="fa fa-calendar"></i>
+                        Release Date
+                        <span class="badge badge-pill badge-secondary"> @Model.ReleaseDate</span>
+
+                    </p>
+                </div>                
+                <div class="row border-bottom border-top px-xl-3">
+                    <p  class="my-lg-1">
+                        <i class="fa fa-hourglass"></i>
+                        Run Time
+                        <span class="badge badge-pill badge-secondary">  @Model.RunTime</span>
+                    </p>
+                </div>                
+                <div class="row border-bottom border-top px-xl-3">
+                    <p  class="my-lg-1">
+                        <i class="fa fa-money-bill"></i>
+                        Box Office
+                        <span class="badge badge-pill badge-secondary"> $@Model.Revenue</span>
+                    </p>
+                </div>                
+                <div class="row border-bottom border-top px-xl-3">
+                    <p  class="my-lg-1">
+                        <i class="fa fa-dollar-sign"></i>
+                        Budget
+                        <span class="badge badge-pill badge-secondary"> $@Model.Budget</span>
+                    </p>
+                </div>                
+                <div class="row border-top px-xl-3">
+                    <p class="my-lg-1">
+                        <i class="fa fa-imdb"></i>
+                        <i class="fa fa-share-square"></i>
+                    </p>
+                   
+                </div>                
+            </div>
+            <div class="col-8" style="padding-left:150px;">
+                <div class="row">
+                    <h5>CAST</h5>
+                </div>
+                @foreach (var cast in Model.MovieCasts)
+                {
+                    <div class="row border-bottom border-top">
+                        <div class="col-4">
+                            <img class="img-fluid rounded-circle" src="@cast.Cast.ProfilePath" alt="@cast.Cast.Name" style="height:60px;"/>
+                        </div>                       
+                        <div class="col-4">
+                            <p>@cast.Cast.Name</p>
+                            
+                        </div>                       
+                        <div class="col-4">
+                            <p>@cast.Character</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="row">
+                <h2>Casts: </h2>
+            </div>
+            <div class="row">
+                @foreach (var cast in Model.MovieCasts)
+                {
+
+                    <div >
+                       
+                            
+                        <a src="@cast.Cast.ProfilePath">
+                            <h5>@cast.Cast.Name</h5>
+                        </a>
+                            
+                            <p class="card-text">CastID: @cast.CastId</p>
+                            <p class="card-text">Characters: @cast.Character</p>
+                        
+
+                    </div>
+
+
+
+                }
+            </div>*@
+               
+           
+
+        @*</div>*@
+    </div>
+

@@ -10,6 +10,7 @@ namespace MovieStore.Core.ServiceInterfaces
     {
         Task<IEnumerable<Movie>> GetTop25HighestRevnueMovies();
         Task<IEnumerable<Movie>> Get25TopRatedMovies();
+        Task<IEnumerable<Movie>> GetMoviesByGenreId(int genreId);
         Task<Movie> GetMovieById(int id);
         Task<Movie> CreateMovie(Movie movie);
         Task<Movie> UpdateMovie(Movie movie);

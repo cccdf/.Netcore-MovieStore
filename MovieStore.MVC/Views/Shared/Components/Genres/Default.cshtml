@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MovieStore.Core.Entities.Genre>
+
+@foreach (var genre in Model)
+{
+    <a>
+        <a href="/Genre/@genre.Id" class="dropdown-item">@genre.Name </a>
+       
+    </a>
+}
+
+@*1. when click on genre, it should go to  moviescontroller and an action method that will get me a list of movies belonging to that genre
+2. show them as Index page, show them as Movie Poster, here you can reuse the MovieCard Partial View
+3.goto moviecontroller, go to action method called Genres, input is GenreId
+4. take that genre id and get movies belonging to that genre and return a new view where inside that view you need to re-use the MovieCard Partial View
+
+
+Task 2
+when you click on Movie Poster it should go to MoviesController and action method called Details
+Details will take Movie Id and goto movie service and get movie details(all the movie reacord info from movie table).
+get movie average ratings, calculate rating based on review table by movieId.
+get all the cast information belonging to that movie. get cast name and his character and id and that cast should name should be hyperlink.
+
+In EF we have method called Include and ThenInclude, use this methods.
+In MovieRepository override the getbyid method to include all the below details.
+eg dbContext.Movies.Include(m=>m.MovieCast).ThenInclude(c=>c.Cast)*@
