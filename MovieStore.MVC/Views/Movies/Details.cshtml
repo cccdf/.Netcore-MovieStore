@@ -49,23 +49,25 @@
             <div class="col-2 pt-lg-3">
                 @if (Model.CheckFavorite)
                 {
-                <div class="row pb-xl-2">
-                    <form method="delete" action="/User/Favorite/@Model.Movie.Id">
-                        <button type="submit" class="btn btn-dark btn-sm"><i class="fas fa-heart"></i></button>
+                    <form method="post" action="/user/deletefavorite">
 
+                        <div class="row pb-xl-2">
+                            <input type="hidden" value="@Model.Movie.Id" name="movieId" />
+                            <button type="submit" class="btn btn-dark btn-sm" value="UnFavorate"><i class="fas fa-heart"></i></button>
+                        </div>
                     </form>
-
-                </div>
                 }
                 else
                 {
-                    <div class="row pb-xl-2">
-                        <form method="post" action="/User/Favorite/@Model.Movie.Id">
+                    <form method="post" action="/user/addfavorite">
+                        <div class="row pb-xl-2">
+                            <input type="hidden" value="@Model.Movie.Id" name="movieId" />
                             <button type="submit" class="btn btn-dark btn-sm"><i class="far fa-heart"></i></button>
 
-                        </form>
 
-                    </div>
+
+                        </div>
+                    </form>
                 }
 
                 <div class="row pb-xl-2 pr-xl-4">
@@ -84,12 +86,15 @@
                 }
                 else
                 {
-                    <div class="row pb-xl-2 pr-xl-4">
-                        <form action="/User/Purchase/@Model.Movie.Id" method="post">
-                            <button class="btn btn-dark btn-block" type="submit">BUY @Model.Movie.Price</button>
-                        </form>
-                        @*<a class="btn btn-dark btn-block" href="/User/Purchase">BUY @Model.Price</a>*@
-                    </div>
+            <form method="post" action="/User/Purchase">
+                <div class="row pb-xl-2 pr-xl-4">
+                    <input type="hidden" value="@Model.Movie.Id" name="movieId" />
+
+                    <button class="btn btn-dark btn-block" type="submit">BUY @Model.Movie.Price</button>
+
+                    @*<a class="btn btn-dark btn-block" href="/User/Purchase">BUY @Model.Price</a>*@
+                </div>
+            </form>
                 }
 
             </div>

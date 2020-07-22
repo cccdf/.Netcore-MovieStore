@@ -32,5 +32,12 @@ namespace MovieStore.MVC.Controllers
             var movies = await _movieService.GetTop25HighestRevnueMovies();
             return View(movies);
         }
+
+        public async Task<IActionResult> Error()
+        {
+            return View(new ErrorViewModel {
+                RequestId = Activity.Current ? .Id ?? HttpContext.TraceIdentifier
+            }); ;
+        }
     }
 }

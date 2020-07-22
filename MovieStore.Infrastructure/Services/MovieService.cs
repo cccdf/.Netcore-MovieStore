@@ -27,6 +27,7 @@ namespace MovieStore.Infrastructure.Services
         {
 
             //select top 25 m.Id from Movie m left join Review r on m.Id = r.MovieId group by m.Id order by AVG(r.Rating) desc
+
             return await _movieRepository.GetTop25RatingsMovies();
         }
 
@@ -47,6 +48,7 @@ namespace MovieStore.Infrastructure.Services
 
         public async Task<IEnumerable<Movie>> GetTop25HighestRevnueMovies()
         {
+
             return await _movieRepository.GetHighestRevenueMovies();
         }
 
