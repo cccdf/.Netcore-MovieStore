@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using MovieStore.Core.Entities;
 using MovieStore.Core.ServiceInterfaces;
+using MovieStore.Core.Models;
 using MovieStore.MVC.Models;
+using MovieStore.Core.Models.Response;
+using System.Security.Claims;
 
 namespace MovieStore.MVC.Controllers
 {
@@ -14,10 +18,12 @@ namespace MovieStore.MVC.Controllers
         //ioc .net core has built in ioc/di,we need to rely on third-party ioc to do dependency injection, Autofac, Ninject
         private readonly IMovieService _movieService;
         private readonly IGenreService _genreService;
-        public MoviesController(IMovieService movieService, IGenreService genreService)
+        private readonly IUserService _userService;
+        public MoviesController(IMovieService movieService, IGenreService genreService,IUserService userService)
         {
             _movieService = movieService;
             _genreService = genreService;
+            _userService = userService;
         }
         //GET localhost/Movies/index
         [HttpGet]
@@ -81,7 +87,22 @@ namespace MovieStore.MVC.Controllers
         public async Task<IActionResult> Details(int movieId)
         {
             var movie = await _movieService.GetMovieById(movieId);
-            return View(movie);
+            MovieDetailsModel movieDetailsModel = new MovieDetailsModel();
+            movieDetailsModel.Movie = movie;
+
+            var userLoggedIn = HttpContext.User.Identity.IsAuthenticated;
+            if(userLoggedIn)//user already logged in then check if the movie purchased
+            {
+                var userId = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+                movieDetailsModel.CheckBought = await _userService.CheckBought(Convert.ToInt32(userId), movieId);
+            }
+            else
+            {
+                movieDetailsModel.CheckBought = false;
+            }
+            return View(movieDetailsModel);
         }
+
+
     }
 }

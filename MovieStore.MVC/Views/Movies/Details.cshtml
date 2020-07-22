@@ -1,4 +1,5 @@
-﻿@model MovieStore.Core.Entities.Movie
+﻿@*@model MovieStore.Core.Entities.Movie*@
+@model MovieStore.Core.Models.Response.MovieDetailsModel
 
 
 <style>
@@ -9,25 +10,28 @@
 
     <div class="container-fluid">
         <div class="row" style="background-color:black" id="overview">
-            <div class="col-2 pl-lg-0">
-                <img src="@Model.PosterUrl" class="img-fluid" alt="@Model.Title" />
+            <div class="col-2 pl-lg-0 offset-lg-2">
+                <img src="@Model.Movie.PosterUrl" class="img-fluid" alt="@Model.Movie.Title" />
 
             </div>
-            <div class="col-8 px-xl-5">
+            <div class="col-5 offset-lg-1 px-xl-5" style="
+                background-image: url(@Model.Movie.BackdropUrl);
+                background-repeat:no-repeat;
+                background-size:cover">
                 <div class="row">
-                    <h1 class="text-white">@Model.Title</h1>
+                    <h1 class="text-white">@Model.Movie.Title</h1>
 
                 </div>
                 <div class="row">
-                    <p>@Model.Tagline</p>
+                    <p>@Model.Movie.Tagline</p>
                 </div>
                 <div class="row">
                     <div class="col pl-lg-0">
-                        <span>@Model.RunTime m | @Model.ReleaseDate.Value.ToString("yyyy")</span>
+                        <span>@Model.Movie.RunTime m | @Model.Movie.ReleaseDate.Value.ToString("yyyy")</span>
                     </div>
                     <div class="col">
                         <p>
-                            @foreach (var item in Model.MovieGenres)
+                            @foreach (var item in Model.Movie.MovieGenres)
                             {
                             <span class="badge badge-pill badge-secondary">@item.Genre.Name</span>
                             }
@@ -36,30 +40,44 @@
                     </div> 
                 </div>
                 <div class="row">
-                    <span class="badge badge-warning">@Model.Rating.Value.ToString("F")</span>
+                    <span class="badge badge-warning">@Model.Movie.Rating.Value.ToString("F")</span>
                 </div>
                 <div class="row">
-                    <p class="small">@Model.Overview</p>
+                    <p class="small">@Model.Movie.Overview</p>
                 </div>
             </div>
             <div class="col-2 pt-lg-3">
                 <div class="row pb-xl-2">
                     <a class="btn btn-dark btn-sm"><i class="fa fa-heart"></i></a>
-                    
-                </div>                
+
+                </div>
                 <div class="row pb-xl-2 pr-xl-4">
                     <a class="btn btn-dark btn-block" href="#"><i class="fa fa-edit"></i>REVIEW</a>
-                </div>                
+                </div>
                 <div class="row pb-xl-2 pr-xl-4">
-                    
+
                     <a class="btn btn-dark btn-block" href="#"><i class="fa fa-play"></i>TRAILER</a>
-                </div>                
-                <div class="row pb-xl-2 pr-xl-4">
-                    <a class="btn btn-dark btn-block" href="#">BUY @Model.Price</a>
-                </div>    
+                </div>
+                @if (Model.CheckBought)
+                {
+                    <div class="row pb-xl-2 pr-xl-4">
+                        <a class="btn btn-dark btn-block" href="#"><i class="fa fa-play"></i>WATCH</a>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="row pb-xl-2 pr-xl-4">
+                        <form action="/User/Purchase/@Model.Movie.Id" method="post">
+                            <button class="btn btn-dark btn-block" type="submit">BUY @Model.Movie.Price</button>
+                        </form>
+                        @*<a class="btn btn-dark btn-block" href="/User/Purchase">BUY @Model.Price</a>*@
+                    </div>
+                }
+
             </div>
 
-        </div>
+                </div>
         <div class="row pt-xl-3">
             <div class="col-4" style="background-color: #F8F9FA;">
                 <div class="row border-bottom px-xl-2">
@@ -69,7 +87,7 @@
                     <p class="my-lg-1">
                         <i class="fa fa-calendar"></i>
                         Release Date
-                        <span class="badge badge-pill badge-secondary"> @Model.ReleaseDate</span>
+                        <span class="badge badge-pill badge-secondary"> @Model.Movie.ReleaseDate.Value.ToShortDateString()</span>
 
                     </p>
                 </div>                
@@ -77,36 +95,39 @@
                     <p  class="my-lg-1">
                         <i class="fa fa-hourglass"></i>
                         Run Time
-                        <span class="badge badge-pill badge-secondary">  @Model.RunTime</span>
+                        <span class="badge badge-pill badge-secondary">  @Model.Movie.RunTime m</span>
                     </p>
                 </div>                
                 <div class="row border-bottom border-top px-xl-3">
                     <p  class="my-lg-1">
                         <i class="fa fa-money-bill"></i>
                         Box Office
-                        <span class="badge badge-pill badge-secondary"> $@Model.Revenue</span>
+                        <span class="badge badge-pill badge-secondary"> $@Model.Movie.Revenue</span>
                     </p>
                 </div>                
                 <div class="row border-bottom border-top px-xl-3">
                     <p  class="my-lg-1">
                         <i class="fa fa-dollar-sign"></i>
                         Budget
-                        <span class="badge badge-pill badge-secondary"> $@Model.Budget</span>
+                        <span class="badge badge-pill badge-secondary"> $@Model.Movie.Budget</span>
                     </p>
                 </div>                
                 <div class="row border-top px-xl-3">
                     <p class="my-lg-1">
-                        <i class="fa fa-imdb"></i>
+                        <a href="@Model.Movie.ImdbUrl">
+                            <i class="fab fa-imdb"></i>
+                        </a>
+                        
                         <i class="fa fa-share-square"></i>
                     </p>
                    
                 </div>                
             </div>
-            <div class="col-8" style="padding-left:150px;">
+            <div class="col-6" style="padding-left:150px;">
                 <div class="row">
                     <h5>CAST</h5>
                 </div>
-                @foreach (var cast in Model.MovieCasts)
+                @foreach (var cast in Model.Movie.MovieCasts)
                 {
                     <div class="row border-bottom border-top">
                         <div class="col-4">

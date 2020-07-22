@@ -8,5 +8,5 @@ C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieSt
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.csprojAssemblyReference.cache
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.Infrastructure\bin\Debug\netstandard2.1\MovieStore.Core.dll
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.Infrastructure\bin\Debug\netstandard2.1\MovieStore.Core.pdb
-C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.csproj.CopyComplete
+C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.csproj.CoreCompileInputs.cache

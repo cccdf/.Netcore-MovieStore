@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "vRO8KC3XxxlQYvzvwF1u+32maPv22M0VVOukTrQX1oGZQSSYfebmBG9v/QvuUBJgR4cbCyvaSwdnCPvpdhpWYQ==",
+  "dgSpecHash": "tMkLTLqH5U2/bouE2GyqUBMMCd2eRTPP57wOLv7YJiZRw9t1B2NgyPkkisuUGLImExN342DAm05CSEzqvHp9uQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Marti\\OneDrive\\Documents\\Antra Training\\Code\\projects\\Solution1\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Marti\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.6\\microsoft.aspnetcore.cryptography.internal.3.1.6.nupkg.sha512",
+    "C:\\Users\\Marti\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.6\\microsoft.aspnetcore.cryptography.keyderivation.3.1.6.nupkg.sha512",
     "C:\\Users\\Marti\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Marti\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Marti\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

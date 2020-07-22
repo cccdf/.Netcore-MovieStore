@@ -38,6 +38,7 @@ namespace MovieStore.Infrastructure.Data
         public DbSet<MovieCast> MovieCasts { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

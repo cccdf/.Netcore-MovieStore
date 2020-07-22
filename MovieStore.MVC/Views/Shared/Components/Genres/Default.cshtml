@@ -2,10 +2,8 @@
 
 @foreach (var genre in Model)
 {
-    <a>
         <a href="/Genre/@genre.Id" class="dropdown-item">@genre.Name </a>
        
-    </a>
 }
 
 @*1. when click on genre, it should go to  moviescontroller and an action method that will get me a list of movies belonging to that genre
