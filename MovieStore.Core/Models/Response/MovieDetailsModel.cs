@@ -8,6 +8,7 @@ namespace MovieStore.Core.Models.Response
     public class MovieDetailsModel
     {
         public bool CheckBought { get; set; }
+        public bool CheckFavorite { get; set; }
         public Movie Movie { get; set; }
         //public MovieDetailsModel(Movie movie)
         //{

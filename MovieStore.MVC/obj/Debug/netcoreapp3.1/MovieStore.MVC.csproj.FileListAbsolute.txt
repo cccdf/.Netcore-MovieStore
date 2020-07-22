@@ -157,3 +157,5 @@ C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieSt
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_loginResult.cshtml.g.cs
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Controllers\MoviesPurchasedByUser.cshtml.g.cs
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\User\MoviesPurchasedByUser.cshtml.g.cs
+C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\User\Review.cshtml.g.cs
+C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\User\AllReviewsFromTheUser.cshtml.g.cs

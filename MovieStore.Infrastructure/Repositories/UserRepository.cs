@@ -19,7 +19,7 @@ namespace MovieStore.Infrastructure.Repositories
 
         public async override Task<User> GetByIdAsync(int id)
         {
-            return await _dbContext.Users.Include(u=>u.Purchases).Where(u=>u.Id == id).FirstOrDefaultAsync();
+            return await _dbContext.Users.Include(u=>u.Purchases).Include(u=>u.Favorites).Include(u=>u.Reviews).ThenInclude(r=>r.Movie).Where(u=>u.Id == id).FirstOrDefaultAsync();
         }
         public async Task<User> GetUserByEmail(string email)
         {

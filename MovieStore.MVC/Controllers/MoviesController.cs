@@ -95,10 +95,12 @@ namespace MovieStore.MVC.Controllers
             {
                 var userId = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
                 movieDetailsModel.CheckBought = await _userService.CheckBought(Convert.ToInt32(userId), movieId);
+                movieDetailsModel.CheckFavorite = await _userService.CheckFavorite(Convert.ToInt32(userId), movieId);
             }
             else
             {
                 movieDetailsModel.CheckBought = false;
+                movieDetailsModel.CheckFavorite = false;
             }
             return View(movieDetailsModel);
         }

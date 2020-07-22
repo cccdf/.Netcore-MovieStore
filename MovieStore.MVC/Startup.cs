@@ -50,6 +50,10 @@ namespace MovieStore.MVC
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICryptoService, CryptoService>();
             services.AddScoped<IPurchaseRepository, PurchaseRepository>();
+            services.AddScoped<IReviewService, ReviewService>();
+            services.AddScoped<IReviewRepository, ReviewRepository>();
+            services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+            services.AddScoped<IFavoriteService, FavoriteService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -17,12 +17,24 @@ namespace MovieStore.Infrastructure.Services
         private readonly IPurchaseRepository _purchaseRepository;
         private readonly ICryptoService _cryptoService;
         private readonly IMovieRepository _movieRepository;
-        public UserService(IUserRepository userRepository, ICryptoService cryptoService, IPurchaseRepository purchaseRepository, IMovieRepository movieRepository)
+        private readonly IFavoriteRepository _favoriteRepository;
+        public UserService(IUserRepository userRepository, ICryptoService cryptoService, IPurchaseRepository purchaseRepository, IMovieRepository movieRepository,IFavoriteRepository favoriteRepository)
         {
             _userRepository = userRepository;
             _cryptoService = cryptoService;
             _purchaseRepository = purchaseRepository;
             _movieRepository = movieRepository;
+            _favoriteRepository = favoriteRepository;
+        }
+
+        public async Task<Favorite> AddFavorite(int userId, int movieId)
+        {
+            var favorite = new Favorite
+            {
+                UserId = userId,
+                MovieId = movieId
+            };
+           return await _favoriteRepository.AddAsync(favorite);
         }
 
         public async Task<bool> CheckBought(int userId, int movieId)
@@ -37,6 +49,53 @@ namespace MovieStore.Infrastructure.Services
             }
             return false;
 
+        }
+
+        public async Task<bool> CheckFavorite(int userId, int movieId)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            foreach (var favorite in user.Favorites)
+            {
+                if(favorite.MovieId == movieId)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public async Task<Movie> CheckMovieFavoritedByUser(int userId, int movieId)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            foreach (var favorite in user.Favorites)
+            {
+                if(favorite.MovieId == movieId)
+                {
+                    return favorite.Movie;
+                }
+            }
+
+            return null;
+        }
+
+        public async Task<bool> DeleteFavorite(int userId, int movieId)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            foreach (var favorite in user.Favorites)
+            {
+                if(favorite.MovieId == movieId)
+                {
+                    await _favoriteRepository.DeleteAsync(favorite);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public async Task<ICollection<Review>> GetAllReviewsByUser(int userId)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            return user.Reviews;
         }
 
         public async Task<ICollection<Movie>> MoviesPurchased(int userId)
@@ -145,5 +204,7 @@ namespace MovieStore.Infrastructure.Services
             }
             return null;
         }
+
+        
     }
 }
