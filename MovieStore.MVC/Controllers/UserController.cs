@@ -100,7 +100,7 @@ namespace MovieStore.MVC.Controllers
             var movie = await _movieService.GetMovieById(movieId);
             movieDetails.Movie = movie;
             movieDetails.CheckFavorite = true;
-
+            movieDetails.CheckBought = checkBought;
             return View("/Views/Movies/Details.cshtml", movieDetails);
         }
 
@@ -130,6 +130,7 @@ namespace MovieStore.MVC.Controllers
             var movieDetails = new MovieDetailsModel();
             var movie = await _movieService.GetMovieById(movieId);
             movieDetails.Movie = movie;
+            movieDetails.CheckBought = checkBought;
             var movie1 = await _userService.CheckMovieFavoritedByUser(userId, movieId);
             if (movie1 != null)//this movie is still user favorite
             {
