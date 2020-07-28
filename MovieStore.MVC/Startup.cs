@@ -34,7 +34,7 @@ namespace MovieStore.MVC
             services.AddDbContext<MovieStoreDbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("MovieStoreDbConnection")));
             //DI in .net core has 3 types of lifetime
             //scoped, singleton,transient
-
+            services.AddMemoryCache();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
                 options =>
                 {

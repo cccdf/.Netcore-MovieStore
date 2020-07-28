@@ -10,6 +10,7 @@ using MovieStore.Core.Models;
 using MovieStore.MVC.Models;
 using MovieStore.Core.Models.Response;
 using System.Security.Claims;
+using MovieStore.MVC.Filters;
 
 namespace MovieStore.MVC.Controllers
 {
@@ -82,7 +83,7 @@ namespace MovieStore.MVC.Controllers
             var movies = await _movieService.GetMoviesByGenreId(genreId);
             return View(movies);
         }
-
+        [MovieStoreFilter]
         [HttpGet("/Movie/{movieId}")]
         public async Task<IActionResult> Details(int movieId)
         {

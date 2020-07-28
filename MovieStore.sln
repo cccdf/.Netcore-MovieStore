@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.MVC", "MovieStore.MVC\MovieStore.MVC.csproj", "{F83A5836-E29A-4FCF-9F32-0E9415864219}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Core", "MovieStore.Core\MovieStore.Core.csproj", "{6BFF2E50-D3E8-4287-9188-495AA9AA827A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Core", "MovieStore.Core\MovieStore.Core.csproj", "{6BFF2E50-D3E8-4287-9188-495AA9AA827A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Infrastructure", "MovieStore.Infrastructure\MovieStore.Infrastructure.csproj", "{9EBF5747-811D-458D-B115-18FCE1CA19E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieStore.Infrastructure", "MovieStore.Infrastructure\MovieStore.Infrastructure.csproj", "{9EBF5747-811D-458D-B115-18FCE1CA19E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.API", "MovieStore.API\MovieStore.API.csproj", "{DE933627-C905-4430-B81D-712FA4554F8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9EBF5747-811D-458D-B115-18FCE1CA19E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EBF5747-811D-458D-B115-18FCE1CA19E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EBF5747-811D-458D-B115-18FCE1CA19E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE933627-C905-4430-B81D-712FA4554F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE933627-C905-4430-B81D-712FA4554F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE933627-C905-4430-B81D-712FA4554F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE933627-C905-4430-B81D-712FA4554F8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

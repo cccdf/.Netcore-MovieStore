@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieStore.Core.Entities;
 using MovieStore.Core.Models.Request;
@@ -11,6 +12,7 @@ using MovieStore.Core.ServiceInterfaces;
 
 namespace MovieStore.MVC.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -24,6 +26,7 @@ namespace MovieStore.MVC.Controllers
             _reviewService = reviewService;
             _favoriteService = favoriteService;
         }
+ 
         [HttpPost("/User/Purchase")]
         public async Task<IActionResult> Purchase(int movieId)
         {

@@ -74,7 +74,6 @@ C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieSt
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Genres\Default.cshtml.g.cs
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Movies\GetMoviesByGenre.cshtml.g.cs
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Details.cshtml.g.cs
-C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Controllers\Register.cshtml.g.cs
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\MovieStore.MVC.csproj.CoreCompileInputs.cache
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\MovieStore.MVC.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
@@ -155,7 +154,6 @@ C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieSt
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_loginResult.cshtml.g.cs
-C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Controllers\MoviesPurchasedByUser.cshtml.g.cs
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\User\MoviesPurchasedByUser.cshtml.g.cs
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\User\Review.cshtml.g.cs
 C:\Users\Marti\OneDrive\Documents\Antra Training\Code\projects\Solution1\MovieStore.MVC\obj\Debug\netcoreapp3.1\Razor\Views\User\AllReviewsFromTheUser.cshtml.g.cs
